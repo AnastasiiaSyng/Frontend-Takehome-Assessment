@@ -1,9 +1,15 @@
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import ExpensesTable from "./components/ExpensesTable";
+
 function App() {
+  const queryClient = new QueryClient();
   return (
-    <div id="template-text">
-      <h1>React Starter Template</h1>
-      <p>A lightweight React starter template in TypeScript and Vite</p>
-    </div>
+    <QueryClientProvider client={queryClient}>
+      <div className="container">
+        <h1>Expenses</h1>
+        <ExpensesTable />
+      </div>
+    </QueryClientProvider>
   );
 }
 
